@@ -15,4 +15,4 @@ All dependencies should then be downloaded by going to the root of the project a
 Tests
 -----
 
-Testsing was done by using Cucumber to generate BDD tests. The tests can be found in the `test` directory.
+Testsing was done by using Cucumber to generate BDD tests. The tests can be found in the `features` directory.
