@@ -1,4 +1,5 @@
 require 'rest_client'
+require 'json'
 
 class HackerNews
   def response
@@ -6,7 +7,23 @@ class HackerNews
   end
     
   def download(url='http://api.ihackernews.com/page')
-    @response = RestClient.get url
+    begin
+      @response = RestClient.get url
+    rescue RestClient::Exception => re
+       @response = re.response
+    end
   end
   
+  def parse_response
+    @stories = JSON.parse(@response.to_str)["items"]
+  end
+  
+  def mean
+    total = 0
+    @stories.each do |story|
+      points = story["points"]
+      total += points.to_i
+    end
+    @mean = total/@stories.length
+  end
 end

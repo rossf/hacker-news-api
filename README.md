@@ -12,6 +12,10 @@ You will need the Bundler gem.
 All dependencies should then be downloaded by going to the root of the project and running bundle.
 `bundle install`
 
+Running
+-------
+`ruby run.rb`
+
 Tests
 -----
 

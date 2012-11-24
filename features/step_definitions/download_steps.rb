@@ -2,7 +2,7 @@ require 'json'
 $:.unshift(File.dirname(__FILE__) + '/../../lib')
 require 'hacker_news'
 
-Given /^hacker_news$/ do
+Given /^a Hacker News$/ do
   @hacker_news = HackerNews.new
 end
 
@@ -16,4 +16,8 @@ end
 
 Then /^the response is a JSON string$/ do
   JSON.parse(@response.to_str)
+end
+
+Then /^the response is an error$/ do
+  @response.code!=200
 end
