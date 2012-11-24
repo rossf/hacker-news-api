@@ -11,7 +11,7 @@ When /^I download <(.*)>$/ do |n|
 end
 
 Then /^the response is not an error$/ do
-  @response.code==200
+  @response.code === (200..207)
 end
 
 Then /^the response is a JSON string$/ do
@@ -19,5 +19,5 @@ Then /^the response is a JSON string$/ do
 end
 
 Then /^the response is an error$/ do
-  @response.code!=200
+  !@response.code === (200..207)
 end
