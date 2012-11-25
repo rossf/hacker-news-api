@@ -66,4 +66,14 @@ class HackerNews
     puts "median #{@median}"
     return @median
   end
+  
+  def stories_with_score_greater_than(points_threshold)
+    interesting_stories = Array.new
+    @stories.each do |story|
+      if story["points"].to_i > points_threshold
+        interesting_stories.push story
+      end
+    end
+    return interesting_stories
+  end
 end
