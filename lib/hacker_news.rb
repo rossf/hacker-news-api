@@ -15,10 +15,14 @@ class HackerNews
   end
   
   def parse_response
+    return nil if(!@response || @response.empty?)
+
     @stories = JSON.parse(@response.to_str)["items"]
   end
   
   def mean
+    return nil if(!@stories || @stories.empty?)
+
     total = 0
     @stories.each do |story|
       points = story["points"]
@@ -28,6 +32,8 @@ class HackerNews
   end
   
   def mode
+    return nil if(!@stories || @stories.empty?)
+    
     occurances = Hash.new(0)
     @stories.each do |story|
       occurances[story["points"]] += 1
@@ -40,5 +46,24 @@ class HackerNews
     puts "mode_hash #{mode_hash}"
     @mode = mode_hash.keys
     return @mode
+  end
+  
+  def median
+    return nil if(!@stories || @stories.empty?)
+    
+    points = Array.new
+    @stories.each do |story|
+      points.push(story["points"])
+    end
+    sorted = points.sort
+    puts "points array #{sorted}"
+    mid = sorted.size/2
+    if(sorted.size.even?)
+      @median = (sorted[mid] + sorted[mid-1]) / 2 
+    else
+      @median = sorted[mid]
+    end
+    puts "median #{@median}"
+    return @median
   end
 end

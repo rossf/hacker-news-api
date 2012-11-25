@@ -9,4 +9,5 @@ else
   hacker_news.parse_response
   puts "mean #{hacker_news.mean}"
   puts "mode #{hacker_news.mode}"
+  puts "median #{hacker_news.median}"
 end

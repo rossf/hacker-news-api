@@ -9,3 +9,7 @@ end
 Then /^calculate the mode of the score of all the stories$/ do
   mode = @hacker_news.mode
 end
+
+Then /^calculate the mean of the score of all the stories$/ do
+  median = @hacker_news.median
+end
