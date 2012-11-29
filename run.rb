@@ -17,5 +17,5 @@ else
   stories = hacker_news.stories_with_score_greater_than(median)
   puts stories
   mailer = Mailer.new
-  mailer.send("rossfinch@gmail.com", mean, mode, median, stories)
+  mailer.send("test@email.com", mean, mode, median, stories)
 end

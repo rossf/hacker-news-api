@@ -9,4 +9,4 @@ Feature: Send an email with the mean, mode and median and any stories with score
 		And calculate the median of the score of all the stories
 		Then I get all the stories with a score greater than the median
 		Then I send an email to "rossfinch@gmail.com"
-		And "rossfinch@gmail.com" should recieve an email
+		And "test@email.com" should recieve an email
